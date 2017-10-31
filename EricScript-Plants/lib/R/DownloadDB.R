@@ -53,7 +53,8 @@ cat("<Filter name = \"biotype\" value = \"protein_coding\"/>", file = fileout, s
 
 #### start attributes
 cat("<Attribute name = \"ensembl_gene_id\" />", file = fileout, sep = "\n", append = T)
-cat("<Attribute name = \"external_gene_id\" />", file = fileout, sep = "\n", append = T)  # AKB 2017-02-15
+# cat("<Attribute name = \"external_gene_id\" />", file = fileout, sep = "\n", append = T)  # AKB 2017-02-15
+cat("<Attribute name = \"external_gene_name\" />", file = fileout, sep = "\n", append = T)  # AKB replaced above 2017-10-31 (new Ensembl version)
 cat("<Attribute name = \"description\" />", file = fileout, sep = "\n", append = T)
 #### end attributes
 cat("</Dataset>", file = fileout, sep = "\n", append = T)
