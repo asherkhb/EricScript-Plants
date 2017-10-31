@@ -8,7 +8,7 @@ To simplify using the program, a Dockerfile is provided which will create a Dock
 If you are interested in "normal" system installation, or the modified EricScript code, you should see EricScript-Plants/README.md.
 
 All credit for EricScript goes to the original writer Matteo Benelli. See his version [here](https://sites.google.com/site/bioericscript/), and cite him 
-[appropriately](https://www.ncbi.nlm.nih.gov/pubmed/23093608)
+[appropriately](https://www.ncbi.nlm.nih.gov/pubmed/23093608).
 
 > Benelli M, Pescucci C, Marseglia G, Severgnini M, Torricelli F, Magi A. **Discovering chimeric transcripts in paired-end RNA-seq data by using EricScript.** Bioinformatics. 2012; 28(24): 3232-3239.
 
