@@ -58,10 +58,17 @@ The previous command launches an interactive bash session in a Docker container,
 Detach from an attached interactive (-it) session using Ctrl-p, Ctrl-q (Ctrl-p, then q still holding down ctrl). You can only reattach to PID 1, so plan accordingly.
 
 Start an analysis step...
+
+Method 1:
 ```
 [~]$ docker exec -it <interactive_esp> bash
 root@hash:/usr/local/data# <analysis_command> 2>&1 <logfile.txt>
 {Detach: Ctrl-P, Ctrl-Q}
+```
+
+Method 2:
+```
+[~]$ docker exec -d <interactive_esp> bash -c "<analysis_command> 2>&1 <logfile.txt>"
 ```
 
 Here, you are launching an analysis step and redirecting all output to a logfile. I prefer logging to a file on the mounted volume so I can inspect progress without using special Docker commands.
@@ -74,7 +81,7 @@ An (incomplete) list of most commonly used commands...
 * Find chimeric transcripts: `ericscript -p <cores> -db <References_folder> --refid <refid> -name <analysis_name> -o <output_folder> <R1_1.fq> <R2_2.fq>`
 
 
-#### Method 2: Create detached, single-process containeres.
+#### Method 2: Create detached, single-process containers.
 
 You can also launch containers that execute a command directly without interactive nature. I don't prefer this method (as of now), but it can be useful in some situations.
 
