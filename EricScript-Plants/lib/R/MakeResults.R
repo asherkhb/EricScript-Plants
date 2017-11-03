@@ -44,8 +44,8 @@ right_id <- paste(">",tmp_id[seq(2, length(ix.id.fa)*2, by = 2)], sep = "")
 exone.tmp <- unlist(strsplit(as.character(DataMatrix[,1]), "----", fixed = T))
 exone.tmp1 <- exone.tmp[seq(1, dim(DataMatrix)[1]*2, by = 2)]
 exone.tmp2 <- exone.tmp[seq(2, dim(DataMatrix)[1]*2, by = 2)]
-ensgenename1 <- unlist(strsplit(exone.tmp1, "_"))[seq(1, dim(DataMatrix)[1]*2, by = 2)]
-ensgenename2 <- unlist(strsplit(exone.tmp2, "_"))[seq(1, dim(DataMatrix)[1]*2, by = 2)]
+ensgenename1 <- unlist(strsplit(exone.tmp1, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(1, dim(DataMatrix)[1]*2, by = 2)] # AKB 2017-11-02
+ensgenename2 <- unlist(strsplit(exone.tmp2, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(1, dim(DataMatrix)[1]*2, by = 2)] # AKB 2017-11-02
 ix.idd <- which(DataMatrix[,1] %in% info.id.and.homology[,1])
 DataMatrixF <- DataMatrix[ix.idd ,]
 homology <- info.id.and.homology[,2]
@@ -62,8 +62,8 @@ ensgenename12 <- as.character(DataMatrixF[,1])
 exone.tmp <- unlist(strsplit(as.character(DataMatrixF[,1]), "----", fixed = T))
 exone.tmp1 <- exone.tmp[seq(1, dim(DataMatrixF)[1]*2, by = 2)]
 exone.tmp2 <- exone.tmp[seq(2, dim(DataMatrixF)[1]*2, by = 2)]
-ensgenename1 <- unlist(strsplit(exone.tmp1, "_"))[seq(1, dim(DataMatrixF)[1]*2, by = 2)]
-ensgenename2 <- unlist(strsplit(exone.tmp2, "_"))[seq(1, dim(DataMatrixF)[1]*2, by = 2)]
+ensgenename1 <- unlist(strsplit(exone.tmp1, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(1, dim(DataMatrixF)[1]*2, by = 2)] # AKB 2017-11-02
+ensgenename2 <- unlist(strsplit(exone.tmp2, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(1, dim(DataMatrixF)[1]*2, by = 2)] # AKB 2017-11-02
 geneid1 <- rep("",length(ensgenename1))
 geneid2 <- rep("",length(ensgenename1))
 description1 <- rep("",length(ensgenename1))
@@ -105,8 +105,8 @@ for (i in 1:length(ensgenename1)) {
   }
 }
 
-exone1 <- unlist(strsplit(exone.tmp1, "_"))[seq(2, dim(DataMatrixF)[1]*2, by = 2)]
-exone2 <- unlist(strsplit(exone.tmp2, "_"))[seq(2, dim(DataMatrixF)[1]*2, by = 2)]
+exone1 <- unlist(strsplit(exone.tmp1, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(2, dim(DataMatrixF)[1]*2, by = 2)] # AKB 2017-11-02
+exone2 <- unlist(strsplit(exone.tmp2, "_\\s*(?=[^_]+$)", perl=TRUE))[seq(2, dim(DataMatrixF)[1]*2, by = 2)] # AKB 2017-11-02
 genename1 <- geneid1
 genename2 <- geneid2
 diff.adj.tot <- rep(NA, length(ensgenename1))

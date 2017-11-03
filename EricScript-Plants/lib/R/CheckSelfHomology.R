@@ -26,8 +26,8 @@ for (i in 1:length(unique.ids.nolabel)) {
 	target <- id.target.f[ix.id]
 	match <- as.numeric(id.match.f[ix.id])
 	query.tmp <- unlist(strsplit(query, "----", fixed = T))
-	query_a <- unlist(strsplit(query.tmp[1], "_"))[1]
-	query_b <- unlist(strsplit(query.tmp[2], "_"))[1]
+	query_a <- unlist(strsplit(query.tmp[1], "_\\s*(?=[^_]+$)", perl=TRUE))[1] # AKB 2017-11-02
+	query_b <- unlist(strsplit(query.tmp[2], "_\\s*(?=[^_]+$)", perl=TRUE))[1] # AKB 2017-11-02
 	diff.match.tmp <- diff.match[ix.id]
 	start.match.tmp <- start.match[ix.id]
 	end.match.tmp <- end.match[ix.id]
