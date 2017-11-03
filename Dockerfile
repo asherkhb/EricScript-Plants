@@ -1,5 +1,6 @@
 # EricScript Plants Docker Image
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM asherkhb/workqueue-docker:base
 
 # Add R-Project to Apt-Get, Update Apt-Get
 RUN sh -c 'echo "deb http://cloud.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list' \
